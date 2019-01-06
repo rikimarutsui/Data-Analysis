@@ -169,23 +169,23 @@ class Stocker():
 
             # If both are not in dataframe, round both
             if (not end_in) & (not start_in):
-                trim_df = df[(df['Date'] >= start_date.date()) & 
-                             (df['Date'] <= end_date.date())]
+                trim_df = df[(df['Date'] >= start_date) & 
+                             (df['Date'] <= end_date)]
             
             else:
                 # If both are in dataframe, round neither
                 if (end_in) & (start_in):
-                    trim_df = df[(df['Date'] >= start_date.date()) & 
-                                 (df['Date'] <= end_date.date())]
+                    trim_df = df[(df['Date'] >= start_date) & 
+                                 (df['Date'] <= end_date)]
                 else:
                     # If only start is missing, round start
                     if (not start_in):
-                        trim_df = df[(df['Date'] > start_date.date()) & 
-                                     (df['Date'] <= end_date.date())]
+                        trim_df = df[(df['Date'] > start_date) & 
+                                     (df['Date'] <= end_date)]
                     # If only end is imssing round end
                     elif (not end_in):
-                        trim_df = df[(df['Date'] >= start_date.date()) & 
-                                     (df['Date'] < end_date.date())]
+                        trim_df = df[(df['Date'] >= start_date) & 
+                                     (df['Date'] < end_date)]
 
         
         else:
